@@ -31,18 +31,26 @@ function updateLanguage() {
     });
 }
 
-// Android Detection and Google Calendar Integration
+// Mobile Device Detection and Calendar Integration
 function isAndroid() {
     return /Android/i.test(navigator.userAgent);
 }
 
-// Show calendar button only on Android devices
-if (isAndroid()) {
+function isIOS() {
+    return /iPhone|iPad|iPod/i.test(navigator.userAgent);
+}
+
+function isMobile() {
+    return isAndroid() || isIOS();
+}
+
+// Show calendar button on mobile devices (Android and iOS)
+if (isMobile()) {
     const calendarBtn = document.getElementById('addToCalendar');
     if (calendarBtn) {
         calendarBtn.style.display = 'inline-flex';
 
-        // Create Google Calendar event link
+        // Create calendar event
         calendarBtn.addEventListener('click', function (e) {
             e.preventDefault();
 
@@ -53,11 +61,35 @@ if (isAndroid()) {
             const startDate = '20260201T160000'; // Feb 1, 2026, 4:00 PM
             const endDate = '20260201T210000'; // Feb 1, 2026, 9:00 PM
 
-            // Create Google Calendar URL
-            const googleCalendarUrl = `https://www.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(eventTitle)}&dates=${startDate}/${endDate}&details=${encodeURIComponent(eventDescription)}&location=${encodeURIComponent(eventLocation)}&sf=true&output=xml`;
+            if (isIOS()) {
+                // For iOS: Create and download .ics file
+                const icsContent = [
+                    'BEGIN:VCALENDAR',
+                    'VERSION:2.0',
+                    'PRODID:-//Hindu Samajotsava//Event//EN',
+                    'BEGIN:VEVENT',
+                    `DTSTART:${startDate}Z`,
+                    `DTEND:${endDate}Z`,
+                    `SUMMARY:${eventTitle}`,
+                    `DESCRIPTION:${eventDescription}`,
+                    `LOCATION:${eventLocation}`,
+                    'STATUS:CONFIRMED',
+                    'END:VEVENT',
+                    'END:VCALENDAR'
+                ].join('\n');
 
-            // Open in new tab
-            window.open(googleCalendarUrl, '_blank');
+                const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
+                const link = document.createElement('a');
+                link.href = URL.createObjectURL(blob);
+                link.download = 'Hindu_Samajotsava.ics';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            } else {
+                // For Android: Use Google Calendar URL
+                const googleCalendarUrl = `https://www.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(eventTitle)}&dates=${startDate}/${endDate}&details=${encodeURIComponent(eventDescription)}&location=${encodeURIComponent(eventLocation)}&sf=true&output=xml`;
+                window.open(googleCalendarUrl, '_blank');
+            }
         });
     }
 }
