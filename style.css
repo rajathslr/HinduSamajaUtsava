@@ -203,6 +203,27 @@ body {
     text-decoration: underline;
 }
 
+/* About Section */
+.about-section {
+    background-color: #ffffff;
+    padding: 80px 0;
+}
+
+.about-content {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.about-text {
+    font-size: 18px;
+    line-height: 1.8;
+    color: #333;
+    text-align: justify;
+    margin-top: 32px;
+    font-weight: 400;
+}
+
 /* Events Section */
 .events-section {
     background-color: #f1f1f1;
