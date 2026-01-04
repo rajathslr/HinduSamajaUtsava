@@ -31,6 +31,37 @@ function updateLanguage() {
     });
 }
 
+// Android Detection and Google Calendar Integration
+function isAndroid() {
+    return /Android/i.test(navigator.userAgent);
+}
+
+// Show calendar button only on Android devices
+if (isAndroid()) {
+    const calendarBtn = document.getElementById('addToCalendar');
+    if (calendarBtn) {
+        calendarBtn.style.display = 'inline-flex';
+
+        // Create Google Calendar event link
+        calendarBtn.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            // Event details
+            const eventTitle = 'Hindu Samajotsava';
+            const eventLocation = 'Global Village Back Gate, Channasandra, Bengaluru';
+            const eventDescription = 'Hindu Samajotsava - A festival celebrating our culture, strength and unity.';
+            const startDate = '20260201T160000'; // Feb 1, 2026, 4:00 PM
+            const endDate = '20260201T210000'; // Feb 1, 2026, 9:00 PM
+
+            // Create Google Calendar URL
+            const googleCalendarUrl = `https://www.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(eventTitle)}&dates=${startDate}/${endDate}&details=${encodeURIComponent(eventDescription)}&location=${encodeURIComponent(eventLocation)}&sf=true&output=xml`;
+
+            // Open in new tab
+            window.open(googleCalendarUrl, '_blank');
+        });
+    }
+}
+
 // Smooth scroll for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {

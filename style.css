@@ -203,6 +203,33 @@ body {
     text-decoration: underline;
 }
 
+/* Calendar Button */
+.calendar-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background-color: #dd9933;
+    color: white;
+    padding: 16px 32px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    margin-top: 32px;
+    transition: all 0.3s;
+    box-shadow: 0 4px 15px rgba(221, 153, 51, 0.3);
+}
+
+.calendar-btn:hover {
+    background-color: #c78829;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(221, 153, 51, 0.4);
+}
+
+.calendar-icon {
+    font-size: 24px;
+}
+
 /* About Section */
 .about-section {
     background-color: #ffffff;
