@@ -57,7 +57,8 @@ if (isMobile()) {
             // Event details
             const eventTitle = 'Hindu Samajotsava';
             const eventLocation = 'Global Village Back Gate, Channasandra, Bengaluru';
-            const eventDescription = 'Hindu Samajotsava - A festival celebrating our culture, strength and unity.';
+            const websiteUrl = 'https://rajathslr.github.io/HinduSamajaUtsava/';
+            const eventDescription = `Hindu Samajotsava - A festival celebrating our culture, strength and unity.\n\nWebsite: ${websiteUrl}\n\nJoin us for Grand Procession, Gopuja & Homa, Cultural Program, and Prasada.`;
             const startDate = '20260201T160000'; // Feb 1, 2026, 4:00 PM
             const endDate = '20260201T210000'; // Feb 1, 2026, 9:00 PM
 
@@ -72,6 +73,7 @@ if (isMobile()) {
                     `DTEND:${endDate}Z`,
                     `SUMMARY:${eventTitle}`,
                     `DESCRIPTION:${eventDescription}`,
+                    `URL:${websiteUrl}`,
                     `LOCATION:${eventLocation}`,
                     'STATUS:CONFIRMED',
                     'END:VEVENT',
