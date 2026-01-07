@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hindu Samajotsava - QR Code Printable</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: white;
+            padding: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 800px;
+            text-align: center;
+            border: 3px solid #912c1d;
+            padding: 60px 40px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, #fff9f0 0%, #ffffff 100%);
+        }
+
+        .om-symbol {
+            font-size: 72px;
+            color: #dd9933;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 48px;
+            color: #912c1d;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .subtitle {
+            font-size: 24px;
+            color: #666;
+            margin-bottom: 40px;
+        }
+
+        .qr-section {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            margin: 40px 0;
+        }
+
+        .qr-code {
+            width: 400px;
+            height: 400px;
+            margin: 0 auto 30px;
+            display: block;
+            border: 8px solid #dd9933;
+            border-radius: 15px;
+            padding: 20px;
+            background: white;
+        }
+
+        .scan-text {
+            font-size: 28px;
+            color: #912c1d;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .url-text {
+            font-size: 20px;
+            color: #666;
+            margin-bottom: 30px;
+            word-break: break-all;
+        }
+
+        .event-details {
+            background: #fff9f0;
+            padding: 30px;
+            border-radius: 10px;
+            margin-top: 30px;
+            border-left: 5px solid #dd9933;
+        }
+
+        .event-details h2 {
+            color: #912c1d;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .detail-item {
+            font-size: 18px;
+            color: #333;
+            margin: 12px 0;
+            text-align: left;
+        }
+
+        .detail-label {
+            font-weight: bold;
+            color: #912c1d;
+            display: inline-block;
+            width: 120px;
+        }
+
+        .footer-text {
+            margin-top: 40px;
+            font-size: 16px;
+            color: #999;
+        }
+
+        @media print {
+            body {
+                padding: 20px;
+            }
+
+            .container {
+                border: 2px solid #912c1d;
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="om-symbol">ॐ</div>
+        <h1>Hindu Samajotsava</h1>
+        <p class="subtitle">ಹಿಂದೂ ಸಮಾಜೋತ್ಸವ</p>
+
+        <div class="qr-section">
+            <p class="scan-text">📱 Scan to Visit Website</p>
+            <p class="scan-text">ವೆಬ್‌ಸೈಟ್ ಭೇಟಿ ನೀಡಲು ಸ್ಕ್ಯಾನ್ ಮಾಡಿ</p>
+
+            <img src="images/website_qr_code.png" alt="QR Code" class="qr-code">
+
+            <p class="url-text">https://rajathslr.github.io/HinduSamajaUtsava/</p>
+        </div>
+
+        <div class="event-details">
+            <h2>Event Details | ಕಾರ್ಯಕ್ರಮದ ವಿವರಗಳು</h2>
+            <div class="detail-item">
+                <span class="detail-label">📅 Date:</span>
+                01-02-2026, Sunday | ಭಾನುವಾರ
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">🕐 Time:</span>
+                4:00 PM Onwards | ಸಂಜೆ 4:00 ರಿಂದ
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">📍 Venue:</span>
+                Global Village Back Gate, Channasandra, Bengaluru
+            </div>
+        </div>
+
+        <p class="footer-text">
+            Vande Mataram | ವಂದೇ ಮಾತರಂ<br>
+            © 2026 Hindu Samajotsava Organizing Committee, Channasandra
+        </p>
+    </div>
+</body>
+
+</html>
